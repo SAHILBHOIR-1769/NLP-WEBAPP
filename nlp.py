@@ -19,7 +19,7 @@ def draw_all(
 
         Explore the world of Natural Language Processing with this amazing web app! 
 
-        This App is built using pretrained transformers which are capable of doing wonders with the Textual data.
+        This App harnesses advanced NLP models, enabling it to perform intricate tasks with textual data.
 
         ```python
         Key Features:
@@ -96,7 +96,7 @@ Pick top-scoring sentences for the summary.""")
         if raw_text != "" and num_words is not None:
             num_words = int(num_words)
             summarizer = pipeline('summarization')
-            summary = summarizer(raw_text, min_length=num_words, max_length=60)
+            summary = summarizer(raw_text, min_length=num_words, max_length=100)
             s1 = json.dumps(summary[0])
             d2 = json.loads(s1)
             result_summary = d2['summary_text']
@@ -168,6 +168,16 @@ Apply the model to predict sentiment for each piece of text.""")
     elif choice == "Question Answering":
         st.subheader("Question Answering")
         st.write(" Enter the Context and ask the Question to find out the Answer !")
+        st.write("""
+        1.Input Context and Question: Provide a piece of text (context) and a question related to that text.
+        
+        2.Context Understanding: The system processes and understands the context to extract relevant information.
+
+        3.Model Inference: A pretrained QA model processes the input and generates a response.
+
+        4.Answer Extraction: The model identifies the part of the context that contains the answer to the question.
+
+        5.Answer Formulation: The extracted information is structured and presented as the final answer.""")
         question_answering = pipeline("question-answering")
 
         context = st.text_area("Context", "Enter the Context Here")
