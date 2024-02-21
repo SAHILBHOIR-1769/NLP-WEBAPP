@@ -1,7 +1,6 @@
 streamlit
 stqdm
 transformers
-json
 spacy
 spacy-streamlit
 wordcloud
